@@ -1,6 +1,8 @@
 # Data-Mining-Assignment-1
 ChatGPT: https://github.com/darshlukkad/Data-Mining-1/blob/main/CRISM_DM_Assignment_1_DM.pdf
+
 medium: https://medium.com/@darshlukkad/can-we-predict-summit-success-on-mount-rainier-a-data-science-journey-with-crisp-dm-9639de301282
+
 Kaggle: https://www.kaggle.com/datasets/codersree/mount-rainier-weather-and-climbing-data
 
 # Visual Insights
