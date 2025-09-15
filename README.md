@@ -2,16 +2,6 @@
 
 A modern, responsive web application built with Flask and Bootstrap for managing tasks. Features a beautiful UI, REST API, and Docker support.
 
-## ⚡ One-Command Start
-
-**Get started in seconds with Docker:**
-
-```bash
-docker run -p 5000:5000 darshlukkad3110/flask-task-manager:latest
-```
-
-Then visit http://localhost:5000 🚀
-
 ## ✨ Features
 
 - **Modern UI**: Beautiful, responsive design with Bootstrap 5
@@ -33,29 +23,11 @@ Then visit http://localhost:5000 🚀
 
 ## 🚀 Quick Start
 
-### Option 1: Using Docker Hub (Fastest - No Build Required)
-
-**Run directly from Docker Hub without cloning or building:**
-
-```bash
-# Run the latest version
-docker run -p 5000:5000 darshlukkad3110/flask-task-manager:latest
-
-# Or run the specific version
-docker run -p 5000:5000 darshlukkad3110/flask-task-manager:v1.0.0
-```
-
-**Access the application:**
-- Web UI: http://localhost:5000
-- API: http://localhost:5000/api/tasks
-- Health Check: http://localhost:5000/health
-
-### Option 2: Using Docker Compose (Local Development)
+### Option 1: Using Docker (Recommended)
 
 1. **Clone and navigate to the project:**
    ```bash
-   git clone https://github.com/darshlukkad/flask-task-manager.git
-   cd flask-task-manager
+   cd flask-web-app
    ```
 
 2. **Build and run with Docker Compose:**
@@ -68,7 +40,7 @@ docker run -p 5000:5000 darshlukkad3110/flask-task-manager:v1.0.0
    - API: http://localhost:5000/api/tasks
    - Health Check: http://localhost:5000/health
 
-### Option 3: Local Development (Python)
+### Option 2: Local Development
 
 1. **Create virtual environment:**
    ```bash
@@ -148,65 +120,31 @@ curl -X PUT http://localhost:5000/api/tasks/<task-id> \
   -d '{"completed": true}'
 ```
 
-## 🐳 Docker Hub
+## 🐳 Docker Commands
 
-### Available Images
-
-Our Flask Task Manager is available on Docker Hub:
-
-- **Latest Version**: `darshlukkad3110/flask-task-manager:latest`
-- **Versioned**: `darshlukkad3110/flask-task-manager:v1.0.0`
-
-**Docker Hub Repository**: [hub.docker.com/r/darshlukkad3110/flask-task-manager](https://hub.docker.com/r/darshlukkad3110/flask-task-manager)
-
-### Quick Docker Commands
-
-**Run from Docker Hub (Recommended):**
+**Build the image:**
 ```bash
-# Run the latest version
-docker run -p 5000:5000 darshlukkad3110/flask-task-manager:latest
-
-# Run in background
-docker run -d -p 5000:5000 --name flask-app darshlukkad3110/flask-task-manager:latest
-
-# Run with custom port
-docker run -p 8080:5000 darshlukkad3110/flask-task-manager:latest
-```
-
-**Local Development Commands:**
-```bash
-# Build the image locally
 docker build -t flask-task-manager .
-
-# Run locally built container
-docker run -p 5000:5000 flask-task-manager
-
-# Run with Docker Compose
-docker-compose up -d
-
-# View logs
-docker-compose logs -f
-
-# Stop the application
-docker-compose down
 ```
 
-**Container Management:**
+**Run the container:**
 ```bash
-# View running containers
-docker ps
+docker run -p 5000:5000 flask-task-manager
+```
 
-# Stop container
-docker stop flask-app
+**Run with Docker Compose:**
+```bash
+docker-compose up -d
+```
 
-# Remove container
-docker rm flask-app
+**View logs:**
+```bash
+docker-compose logs -f
+```
 
-# View container logs
-docker logs flask-app
-
-# Execute commands in running container
-docker exec -it flask-app /bin/bash
+**Stop the application:**
+```bash
+docker-compose down
 ```
 
 ## 🔧 Configuration
@@ -240,54 +178,7 @@ To add a real database (PostgreSQL/MySQL):
 
 ## 🚀 Production Deployment
 
-### Option 1: Deploy from Docker Hub (Easiest)
-
-**Deploy directly from Docker Hub without building:**
-
-```bash
-# Deploy latest version
-docker run -d -p 5000:5000 --name flask-task-manager \
-  -e FLASK_ENV=production \
-  -e SECRET_KEY=your-production-secret-key \
-  --restart unless-stopped \
-  darshlukkad3110/flask-task-manager:latest
-
-# Deploy specific version
-docker run -d -p 5000:5000 --name flask-task-manager \
-  -e FLASK_ENV=production \
-  -e SECRET_KEY=your-production-secret-key \
-  --restart unless-stopped \
-  darshlukkad3110/flask-task-manager:v1.0.0
-```
-
-### Option 2: Deploy with Docker Compose
-
-1. **Create production docker-compose.yml:**
-   ```yaml
-   version: '3.8'
-   services:
-     web:
-       image: darshlukkad3110/flask-task-manager:latest
-       ports:
-         - "5000:5000"
-       environment:
-         - FLASK_ENV=production
-         - SECRET_KEY=your-production-secret-key
-       restart: unless-stopped
-       healthcheck:
-         test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
-         interval: 30s
-         timeout: 10s
-         retries: 3
-   ```
-
-2. **Deploy:**
-   ```bash
-   docker-compose up -d
-   ```
-
-### Option 3: Build and Deploy Locally
-
+### Using Docker
 1. **Build production image:**
    ```bash
    docker build -t your-registry/flask-task-manager:latest .
@@ -303,13 +194,11 @@ docker run -d -p 5000:5000 --name flask-task-manager \
    docker-compose -f docker-compose.prod.yml up -d
    ```
 
-### Production Environment Setup
+### Environment Setup
 - Set `FLASK_ENV=production`
 - Use a strong `SECRET_KEY`
 - Configure proper database credentials
 - Set up reverse proxy (Nginx) for production
-- Use Docker secrets for sensitive data
-- Set up monitoring and logging
 
 ## 🧪 Testing
 
