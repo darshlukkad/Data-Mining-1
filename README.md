@@ -477,6 +477,31 @@ curl -X POST http://localhost:5000/api/tasks \
 - On macOS arm64, Docker uses native virtualization but still benefits from lightweight container images; Multipass Ubuntu has more packages and services enabled by default.
 - Network path in VMs can involve extra virtual NICs and NAT; the container path is typically simpler, yielding lower per-request overhead.
 
+## 📊 Visual Insights
+
+This section provides key visualizations and insights from our data analysis:
+
+### Conceptual Data & Feature Flow
+![Conceptual Data & Feature Flow](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
+### Reliability Diagram Analysis
+![Reliability Diagram](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
+### Route Distribution
+![Route Histogram](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
+### Monthly Climbing Patterns
+![Monthly Climb Attempts](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
+### Success Rate Trends
+![Success Rate vs Month](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
+### Environmental Impact Analysis
+![Temperature and Wind Speed Impact](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
+### Wind Speed Distribution
+![Wind Speed Histogram](https://github.com/darshlukkad/Data-Mining-1/blob/main/README.md)
+
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
